@@ -52,3 +52,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function validateForm() {
+        return checkPhone();
+    }
+    function checkPhone() {
+        var phone = document.forms["myForm"]["phone"].value;
+        var phoneNum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; 
+            if(phone.value.match(phoneNum)) {
+                return true;
+            }
+            else {
+                document.getElementById("phone").className = document.getElementById("phone").className + " error";
+                return false;
+            }
+        }
+        
